@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    /* height: 100%; // Managed by React app structure */
+    /* overflow: hidden; // Might need adjustment based on React layout */
+    font-family: Arial, sans-serif;
+    background-color: black;
+  }
+  
+  /* Style for the canvas container if needed, or apply directly to canvas */
+  .three-canvas-container {
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    position: fixed; /* Ensure it covers the whole screen behind overlay */
+    top: 0;
+    left: 0;
+    z-index: -1; /* Place it behind the overlay */
+  }
+  
+  #overlay {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    z-index: 10;
+    color: white;
+  }
+  
+  #moveCameraBtn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #aaa;
+    color: white;
+    transition: background 0.3s;
+  }
+  
+  #moveCameraBtn:hover {
+    background: rgba(255, 255, 255, 0.3);
+  } 
