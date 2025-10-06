@@ -109,12 +109,27 @@ const ThreeScene = forwardRef((props, ref) => {
         if (object.geometry) object.geometry.dispose();
         if (object.material) {
           if (Array.isArray(object.material)) {
-            object.material.forEach(material => material.dispose());
+            object.material.forEach(material => {
+              // Dispose textures within materials
+              if (material.map) material.map.dispose();
+              if (material.lightMap) material.lightMap.dispose();
+              if (material.bumpMap) material.bumpMap.dispose();
+              if (material.normalMap) material.normalMap.dispose();
+              if (material.specularMap) material.specularMap.dispose();
+              if (material.envMap) material.envMap.dispose();
+              material.dispose();
+            });
           } else {
+            // Dispose textures within the material
+            if (object.material.map) object.material.map.dispose();
+            if (object.material.lightMap) object.material.lightMap.dispose();
+            if (object.material.bumpMap) object.material.bumpMap.dispose();
+            if (object.material.normalMap) object.material.normalMap.dispose();
+            if (object.material.specularMap) object.material.specularMap.dispose();
+            if (object.material.envMap) object.material.envMap.dispose();
             object.material.dispose();
           }
         }
-        if (object.texture) object.texture.dispose();
       });
     };
   }, []); // Empty dependency array ensures this runs once on mount and cleans up on unmount

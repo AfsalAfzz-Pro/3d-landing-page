@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import './App.css';
-import ThreeScene from './ThreeScene'; // We'll create this next
+import ThreeScene from './ThreeScene';
 
 function App() {
   const threeSceneRef = useRef();
